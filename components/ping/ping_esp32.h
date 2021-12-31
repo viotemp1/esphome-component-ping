@@ -49,6 +49,7 @@ class PingSensorESP32 : public PingSensor {
       latency_sensor_->publish_state((float) latency_ms / 1000);
     }
     esp_ping_new_session(&ping_config, &cbs, &ping);
+    esp_ping_start(ping);
   }
 
  private:
