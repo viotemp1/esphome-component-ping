@@ -48,6 +48,7 @@ class PingSensorESP32 : public PingSensor {
     if (latency_ms >= 0 && this->latency_sensor_ != nullptr) {
       latency_sensor_->publish_state((float) latency_ms / 1000);
     }
+    esp_ping_delete_session(ping);
     esp_ping_new_session(&ping_config, &cbs, &ping);
     esp_ping_start(ping);
   }
