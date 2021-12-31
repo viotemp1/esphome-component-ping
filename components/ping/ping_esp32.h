@@ -77,7 +77,7 @@ class PingSensorESP32 : public PingSensor {
     ESP_LOGD(TAG, "%d bytes from %s icmp_seq=%d ttl=%d time=%d ms", recv_len, ipaddr_ntoa((ip_addr_t *) &target_addr),
              seqno, ttl, elapsed_time);
     this->incr_total_success_time(elapsed_time);
-    ESP_LOGD(TAG, "cmd_ping_on_ping_success");
+    ESP_LOGI(TAG, "cmd_ping_on_ping_success");
   }
 
   void cmd_ping_on_ping_end(esp_ping_handle_t hdl) {
@@ -108,7 +108,7 @@ class PingSensorESP32 : public PingSensor {
     this->set_latest_latency(mean);
     this->reset();
     esp_ping_delete_session(hdl);
-    ESP_LOGD(TAG, "cmd_ping_on_ping_end");
+    ESP_LOGI(TAG, "cmd_ping_on_ping_end");
   }
 
   void cmd_ping_on_ping_timeout(esp_ping_handle_t hdl) {
