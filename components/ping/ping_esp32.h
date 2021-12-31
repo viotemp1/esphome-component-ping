@@ -29,6 +29,9 @@ namespace esphome {
 namespace ping {
 class PingSensorESP32 : public PingSensor {
  public:
+ 
+  float get_setup_priority() const override { return esphome::setup_priority::LATE; }
+ 
   void setup() override {
     init_ping();
     esp_ping_new_session(&ping_config, &cbs, &ping);
