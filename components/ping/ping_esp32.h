@@ -122,7 +122,7 @@ class PingSensorESP32 : public PingSensor {
     esp_ping_get_profile(hdl, ESP_PING_PROF_SEQNO, &seqno, sizeof(seqno));
     esp_ping_get_profile(hdl, ESP_PING_PROF_IPADDR, &target_addr, sizeof(target_addr));
     // this->set_latest_loss(100);
-    ESP_LOGW(TAG, "From %s icmp_seq=%d timeout", ipaddr_ntoa((ip_addr_t *) &target_addr), seqno);
+    // ESP_LOGW(TAG, "From %s icmp_seq=%d timeout", ipaddr_ntoa((ip_addr_t *) &target_addr), seqno);
   }
 
  protected:
